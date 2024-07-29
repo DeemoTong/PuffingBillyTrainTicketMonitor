@@ -5,11 +5,10 @@ from twilio.rest import Client
 from datetime import datetime
 
 # Twilio Configuration
-# Get below values from your Twilio account
-account_sid = 'XXXXXXX'
-auth_token = 'XXXXXXX'
-twilio_phone_number = '+10000000000'
-your_phone_number = '+61000000000'
+account_sid = 'AC41af73fd7d56737982db8e345a4bad0c'
+auth_token = '51badeb69076c7fcd5eb227f504d7899'
+twilio_phone_number = '+12089031693'
+your_phone_number = '+61419328769'
 
 # **Required**:
 # Request URL (Request headers Path)
