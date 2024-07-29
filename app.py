@@ -10,7 +10,9 @@ auth_token = '51badeb69076c7fcd5eb227f504d7899'
 twilio_phone_number = '+12089031693'
 your_phone_number = '+61419328769'
 
+# **Required**:
 # Request URL (Request headers Path)
+# Normally you will only need to change this url in order to get the availability of tickets
 url = "https://apps.customlinc.com.au/puffingbillyrailways/BookingCat/Availability/?AT=5F1BXvWrApR6LSFLpf6Rtj&changeDate&localtime=2024-07-29,%2010:30:30:535"
 
 # Request Headers
@@ -24,7 +26,6 @@ headers = {
     "X-Requested-With": "XMLHttpRequest",
 }
 
-
 # Request cookie
 cookies = {
     "currentBrandWAFApplicationBookingCat": "PUFFING%20BILLY",
@@ -32,8 +33,10 @@ cookies = {
 }
 
 # Request data, newDate is the date you want to check, DD/MM/YYYY format
+# The API will only return the next 5 days of availability
+# If you want more days, you need to run multiple tasks with different dates
 data = {
-    "newDate": "01/08/2024",
+    "newDate": "06/08/2024",
     "direction": "1"
 }
 
@@ -74,6 +77,7 @@ def check_availability():
                     send_sms(message)
     else:
         print(f"{current_time} - 无票")
+        
         
         
 
