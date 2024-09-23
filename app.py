@@ -6,10 +6,10 @@ from datetime import datetime
 from playwright.sync_api import sync_playwright
 
 # Twilio Configuration
-account_sid = 'XXXXXXXXXXXXXXXXXX'
-auth_token = 'XXXXXXXXXXXXXXXXXXX'
-twilio_phone_number = '+12089031693'
-your_phone_number = '+61419328769'
+account_sid = ''
+auth_token = ''
+twilio_phone_number = '+'
+your_phone_number = '+'
 
 # Get new token URLs
 def get_availability_urls():
@@ -77,11 +77,11 @@ def check_availability(url):
     html_content = response.text
 
     current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-    if 'logout' in html_content:
-        send_sms("Token 过期，需要重新登录。")
-        print(f"{current_time} - Token 过期")
-        return False  # 返回 False 表示 token 过期
+    
+    # if 'logout' in html_content:
+    #     send_sms("Token 过期，需要重新登录。")
+    #     print(f"{current_time} - Token 过期")
+    #     return False  # 返回 False 表示 token 过期
     
     matches = list(re.finditer("Limited Seats", html_content))
     
